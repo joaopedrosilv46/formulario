@@ -26,12 +26,79 @@
                 <label>Sobrenome:</label>
                 <input type="text" name="sobrenome" id="sobrenome">
             </div>
+            <div>
+                <label>Idade:</label>
+                <input type="number" name="idade" id="idade">
+            </div>
+            <div>
+                <label>Escolaridade:</label>
+                <select name="escolaridade" id="escolaridade">
+                    <option selected disabled value="">Escolha uma opção</option>
+                    <option>Sem Escolaridade</option>
+                    <option>Ensino Fundamental Incompleto</option>
+                    <option>Ensino Fundamental Completo</option>
+                    <option>Ensino Médio Incompleto</option>
+                    <option>Ensino Médio Completo</option>
+                    <option>Ensino Superior Incompleto</option>
+                    <option>Ensino Superior Completo</option>
+                </select>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+        </fieldset>
+
+        
+
+        <div>
+            <label>Qual parte da aplicação você desenvolve?</label><br>
+            <label>
+                <input type="radio" name="devweb" value="frontend">Frontend
+            </label>
+            <label>
+                <input type="radio" name="devweb" value="backend">Backend
+            </label>
+            <label>
+                <input type="radio" name="devweb" value="fullstack">Fullstack
+            </label>
+        </div>
+        
+        <div>
+            <label>Senioridade</label>
+            <select id="senioridade">
+                <option>Junior</option>
+                <option>Pleno</option>
+                <option>Senior</option>
+            </select>
+        </div>
+
+        <fieldset>
+            <div>
+                <label>Selecione os programas que tem afinidade</label><br><br>
+                <input type="checkbox" name="tecnologia1" id="tecnologia1" value="HTML">
+                <label for="tecnologia1">HTML</label>
+                <input type="checkbox" name="tecnologia2" id="tecnologia2" value="CSS">
+                <label for="tecnologia2">CSS</label>
+                <input type="checkbox" name="tecnologia3" id="tecnologia3" value="JavaScript">
+                <label for="tecnologia3">JavaScript</label>
+                <input type="checkbox" name="tecnologia4" id="tecnologia4" value="PHP">
+                <label for="tecnologia4">PHP</label>
+                <input type="checkbox" name="tecnologia5" id="tecnologia5" value="C#">
+                <label for="tecnologia5">C#</label>
+                <input type="checkbox" name="tecnologia6" id="tecnologia6" value="Python">
+                <label for="tecnologia6">Python</label>
+                <input type="checkbox" name="tecnologia7" id="tecnologia7" value="Java">
+                <label for="tecnologia7">Java</label>
+            </div>
         </fieldset>
 
         <div>
-            <label>Email</label>
-            <input type="email" name="email" id="email">
+            <label>Conte um pouco sobre sua experiência no ramo da programação</label><br>
+            <textarea rows="6" style="width: 35em" id="experiência" name="experiência"></textarea>
         </div>
+
+        <button type="submit">Enviar formulário</button>
     </form>
 
 </body>
