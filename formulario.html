@@ -9,30 +9,30 @@
 
     <div>
 
-        <h1>Formulário de Cadastro</h1>
-        <h4>Preencha as lacunas</h4>
+        <h1 id="titulo">Formulário de Cadastro</h1>
+        <h4 id="subtitulo">Preencha as lacunas</h4>
         <br>
 
     </div>
 
     <form>
-        <fieldset>
+        <fieldset class="grupo">
             <div>
-                <label>Nome:</label>
-                <input type="text" name="nome" id="nome">
+                <label for="nome"><strong>Nome:</strong></label>
+                <input type="text" name="nome" id="nome" required>
             </div>
 
             <div>
-                <label>Sobrenome:</label>
-                <input type="text" name="sobrenome" id="sobrenome">
+                <label for="sobrenome"><strong>Sobrenome:</strong></label>
+                <input type="text" name="sobrenome" id="sobrenome" required>
             </div>
             <div>
-                <label>Idade:</label>
-                <input type="number" name="idade" id="idade">
+                <label for="idade"><strong>Idade:</strong></label>
+                <input type="number" name="idade" id="idade" required>
             </div>
             <div>
-                <label>Escolaridade:</label>
-                <select name="escolaridade" id="escolaridade">
+                <label for="escolaridade"><strong>Escolaridade:</strong></label>
+                <select name="escolaridade" id="escolaridade" required>
                     <option selected disabled value="">Escolha uma opção</option>
                     <option>Sem Escolaridade</option>
                     <option>Ensino Fundamental Incompleto</option>
@@ -43,16 +43,16 @@
                     <option>Ensino Superior Completo</option>
                 </select>
             </div>
-            <div>
-                <label>Email:</label>
-                <input type="email" name="email" id="email">
-            </div>
         </fieldset>
 
+            <div class="campo">
+                <label for="email"><strong>Email:</strong></label>
+                <input type="email" name="email" id="email" required>
+            </div>
         
 <br>
-        <div>
-            <label>Qual parte da aplicação você desenvolve?</label><br>
+        <div class="campo">
+            <label><strong>Qual parte da aplicação você desenvolve?</strong></label><br>
             <label>
                 <input type="radio" name="devweb" value="frontend">Frontend
             </label>
@@ -64,8 +64,8 @@
             </label>
         </div>
         
-        <div>
-            <label>Senioridade</label>
+        <div class="campo">
+            <label for="senioridade"><strong>Senioridade</strong></label>
             <select id="senioridade">
                 <option>Junior</option>
                 <option>Pleno</option>
@@ -73,9 +73,9 @@
             </select>
         </div>
 <br>
-        <fieldset>
+        <fieldset class="grupo">
             <div>
-                <label>Selecione os programas que tem afinidade:</label><br><br>
+                <label><strong>Selecione os programas que tem afinidade:</strong></label><br><br>
                 <input type="checkbox" name="tecnologia1" id="tecnologia1" value="HTML">
                 <label for="tecnologia1">HTML</label>
                 <input type="checkbox" name="tecnologia2" id="tecnologia2" value="CSS">
@@ -93,12 +93,12 @@
             </div>
         </fieldset>
 <br>
-        <div>
-            <label>Conte um pouco sobre sua experiência no ramo da programação:</label><br>
+        <div class="campo">
+            <label><strong>Conte um pouco sobre sua experiência no ramo da programação:</strong></label><br>
             <textarea rows="6" style="width: 35em" id="experiência" name="experiência"></textarea>
         </div>
 <br>
-        <button type="submit">Enviar formulário</button>
+        <button class="botao" type="submit">Enviar formulário</button>
     </form>
 
 </body>
