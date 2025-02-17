@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-white: #fff;
     --color-red: #e63636;
     --color-dark1: #181818;
@@ -7,12 +7,12 @@
     --color-purple2: indigo;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--color-dark1);
     color: var(--color-white);
@@ -22,7 +22,9 @@ body{
     height: 100vh;
 }
 
-.content{
+
+
+.content {
     background-color: var(--color-dark2);
     padding: 2rem;
     border-radius: 10px;
@@ -30,25 +32,26 @@ body{
     overflow: auto;
 }
 
-h1{
+h1 {
     margin-bottom: 1rem;
+    margin-top: 5rem;
     text-align: center;
 }
 
-.content form{
+.content form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.span-required{
+.span-required {
     font-size: 12px;
     margin: 3px 0 0 1px;
     color: var(--color-red);
     display: none;
 }
 
-.inputs{
+.inputs {
     padding: 8px 5px;
     outline: none;
     border-radius: 5px;
@@ -60,18 +63,18 @@ h1{
     transition: .3s;
 }
 
-.inputs:focus{
+.inputs:focus {
     border-color: var(--color-purple1);
 }
 
-.box-select{
+.box-select {
     display: flex;
     justify-content: space-evenly;
     font-weight: bold;
     gap: 1rem;
 }
 
-button[type="submit"]{
+button[type="submit"] {
     padding: 1rem;
     font-size: 1rem;
     outline: none;
@@ -84,10 +87,25 @@ button[type="submit"]{
     transition: .3s;
 }
 
+.selecao {
+    padding: 8px 5px;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--color-dark1);
+    border: 2px solid var(--color-dark1);
+    color: var(--color-white);
+    width: 100%;
+    box-sizing: border-box;
+    transition: .3s;
+    font-size: 14px;
+    color: rgb(146, 144, 144); 
+    align-content: normal;
+}
+
 select option {
     background-color: var(--color-dark2);
-    color:var(--color-white);
-}
+    color: var(--color-white);
+}   
 
 #escolhaNula {
     background-color: rgba(77, 71, 71, 0.575);
@@ -97,15 +115,19 @@ select option {
 #escolaridade {
     background-color: var(--color-dark1);
     color: var(--color-white);
-    border: 0.4px 0.4px rgb(128, 121, 121);
+    border: 2px var(--color-dark1);
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 9.6px 40px;
+    outline: none;
 }
 
-button[type="submit"]:hover{
+button[type="submit"]:hover {
     background-color: var(--color-purple1);
 }
 
 @media screen and (max-width: 576px) {
-    .box-select{
+    .box-select {
         flex-direction: column;
         gap: 5px;
     }

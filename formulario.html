@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="formulario.css">
     <title>Formulário</title>
 </head>
+
 <body>
     <div class="content">
         <h1>Formulário </h1>
@@ -24,10 +26,25 @@
                 <span class="span-required">Digite uma senha com no mínimo 8 caracteres</span>
             </div>
             <div>
-                <input type="password" placeholder="Repita a sua senha" class="inputs required" oninput="comparePassword()">
+                <input type="password" placeholder="Repita a sua senha" class="inputs required"
+                    oninput="comparePassword()">
                 <span class="span-required">Senhas devem ser compatíveis</span>
             </div>
-            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10" placeholder="Fale um pouco sobre você..."></textarea>
+            <div>
+                <label class="selecao" for="escolaridade">Escolaridade:</label>
+                <select name="escolaridade" id="escolaridade" required>
+                    <option selected disabled id="escolhaNula" value="">Escolha uma opção</option>
+                    <option>Sem Escolaridade</option>
+                    <option>Ensino Fundamental Incompleto</option>
+                    <option>Ensino Fundamental Completo</option>
+                    <option>Ensino Médio Incompleto</option>
+                    <option>Ensino Médio Completo</option>
+                    <option>Ensino Superior Incompleto</option>
+                    <option>Ensino Superior Completo</option>
+                </select>
+            </div>
+            <textarea class="inputs" name="descricao" id="descricao" cols="25" rows="10"
+                placeholder="Fale um pouco sobre você..."></textarea>
             <p>Qual parte da aplicação você desenvolve?</p>
             <div class="box-select">
                 <div>
@@ -66,27 +83,14 @@
                     <label for="py">Python</label>
                 </div>
             </div>
-            <div>
-                <label for="escolaridade">Escolaridade:</label>
-                <select name="escolaridade" id="escolaridade" required>
-                    <option selected disabled id="escolhaNula" value="">Escolha uma opção</option>
-                    <option>Sem Escolaridade</option>
-                    <option>Ensino Fundamental Incompleto</option>
-                    <option>Ensino Fundamental Completo</option>
-                    <option>Ensino Médio Incompleto</option>
-                    <option>Ensino Médio Completo</option>
-                    <option>Ensino Superior Incompleto</option>
-                    <option>Ensino Superior Completo</option>
-                </select>
-            </div>
             <button type="submit">Enviar</button>
         </form>
     </div>
 </body>
 <script>
-    const form   = document.getElementById('form');
+    const form = document.getElementById('form');
     const campos = document.querySelectorAll('.required');
-    const spans  = document.querySelectorAll('.span-required');
+    const spans = document.querySelectorAll('.span-required');
     const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
     form.addEventListener('submit', (event) => {
@@ -97,60 +101,53 @@
         comparePassword();
     });
 
-    function setError(index){
+    function setError(index) {
         campos[index].style.border = '2px solid #e63636';
         spans[index].style.display = 'block';
     }
 
-    function removeError(index){
+    function removeError(index) {
         campos[index].style.border = '';
         spans[index].style.display = 'none';
     }
 
-    function nameValidate(){
-        if(campos[0].value.length < 3)
-        {
+    function nameValidate() {
+        if (campos[0].value.length < 3) {
             setError(0);
         }
-        else
-        {
+        else {
             removeError(0);
         }
     }
 
-    function emailValidate(){
-        if(!emailRegex.test(campos[1].value))
-        {
+    function emailValidate() {
+        if (!emailRegex.test(campos[1].value)) {
             setError(1);
         }
-        else
-        {
+        else {
             removeError(1);
         }
     }
 
-    function mainPasswordValidate(){
-        if(campos[2].value.length < 8)
-        {
+    function mainPasswordValidate() {
+        if (campos[2].value.length < 8) {
             setError(2);
         }
-        else
-        {
+        else {
             removeError(2);
             comparePassword();
         }
     }
 
-    function comparePassword(){
-        if(campos[2].value == campos[3].value && campos[3].value.length >= 8)
-        {
+    function comparePassword() {
+        if (campos[2].value == campos[3].value && campos[3].value.length >= 8) {
             removeError(3);
         }
-        else
-        {
+        else {
             setError(3);
         }
     }
 
 </script>
+
 </html>
