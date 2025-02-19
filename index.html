@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="style.css">
     <title>Formulário</title>
 </head>
 
@@ -22,12 +22,14 @@
                 <span class="span-required">Digite um email válido</span>
             </div>
             <div>
-                <input type="password" placeholder="Senha" class="inputs required" oninput="mainPasswordValidate()">
+                <input type="password" placeholder="Senha" id="senha" class="inputs required" oninput="mainPasswordValidate()">
+                <input type="checkbox" id="mostrar" onclick = mostrarSenha()>
                 <span class="span-required">Digite uma senha com no mínimo 8 caracteres</span>
             </div>
             <div>
-                <input type="password" placeholder="Repita a sua senha" class="inputs required"
+                <input type="password" placeholder="Repita a sua senha" class="inputs required" id="VerifSenha"
                     oninput="comparePassword()">
+                <input type="checkbox" id="mostrar" onclick = mostrarVerifSenha()>
                 <span class="span-required">Senhas devem ser compatíveis</span>
             </div>
             <div>
@@ -145,6 +147,24 @@
         }
         else {
             setError(3);
+        }
+    }
+
+    function mostrarSenha() {
+        var senha = document.getElementById('senha')
+        if(senha.type=="password"){
+            senha.type = "text";
+        } else {
+            senha.type = "password";
+        }
+    }
+
+    function mostrarVerifSenha() {
+        var senha = document.getElementById('VerifSenha')
+        if(senha.type=="password"){
+            senha.type = "text";
+        } else {
+            senha.type = "password";
         }
     }
 
