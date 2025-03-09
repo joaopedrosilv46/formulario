@@ -63,23 +63,23 @@
             <p>Quais suas experiências?</p>
             <div class="box-select">
                 <div>
-                    <input type="checkbox" id="html" value="html" name="experiencias">
+                    <input type="radio" id="html" value="html" name="experiencias">
                     <label for="html">Html</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="css" value="css" name="experiencias">
+                    <input type="radio" id="css" value="css" name="experiencias">
                     <label for="css">Css</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="js" value="js" name="experiencias">
+                    <input type="radio" id="js" value="js" name="experiencias">
                     <label for="js">JavaScript</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="php" value="php" name="experiencias">
+                    <input type="radio" id="php" value="php" name="experiencias">
                     <label for="php">PHP</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="py" value="py" name="experiencias">
+                    <input type="radio" id="py" value="py" name="experiencias">
                     <label for="py">Python</label>
                 </div>
             </div>
@@ -89,17 +89,56 @@
 </body>
 <script>
     const form = document.getElementById('form');
-    const campos = document.querySelectorAll('.required');
-    const spans = document.querySelectorAll('.span-required');
-    const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+const campos = document.querySelectorAll('.required');
+const spans = document.querySelectorAll('.span-required');
+const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        nameValidate();
-        emailValidate();
-        mainPasswordValidate();
-        comparePassword();
-    });
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Previne o comportamento padrão de envio do formulário
+
+    // Obter os valores dos campos
+    const nome = campos[0].value;
+    const email = campos[1].value;
+    const senha = campos[2].value;
+    const escolaridade = document.getElementById('escolaridade').value;
+    const sobrevoce = document.getElementById('descricao').value;
+    const parteemquetrabalha = document.querySelector('input[name="devinfo"]:checked')?.value || '';
+  // Captura o valor do radio button selecionado
+    const suaexperiencia = document.querySelector('input[name="experiencias"]:checked')?.value || '';
+
+
+    // Montando o objeto que será enviado
+    const programador = {
+        nome,
+        email,
+        senha,
+        escolaridade,
+        sobrevoce,
+        parteemquetrabalha,
+        suaexperiencia
+    };
+
+    try {
+        const response = await fetch('http://localhost:8080/programador', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Dizemos ao backend que o conteúdo é JSON
+            },
+            body: JSON.stringify(programador) // Enviando os dados como JSON
+        });
+
+        if (response.ok) {
+            const message = await response.text(); // Obtém a resposta do servidor
+            alert(message); // Exibe a mensagem do backend
+        } else {
+            alert('Erro ao cadastrar. Tente novamente.');
+            console.error('Erro:', response.status);
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro de conexão com o servidor.');
+    }
+});
 
     function setError(index) {
         campos[index].style.border = '2px solid #e63636';
